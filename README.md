@@ -37,6 +37,7 @@ My document.pdf
 - Fenced code blocks with syntax highlighting (tango theme) and inline code
 - Bullet lists and numbered lists
 - Links and images
+- Tables
 
 ## Styling (convertmd.css)
 
@@ -47,12 +48,15 @@ The CSS file drives the appearance of both the HTML and PDF outputs. It uses a b
 - Inline code: red-on-grey (`#c53030` on `#edf2f7`)
 - Code blocks: light grey background (`#f8f8f8`) with a border, monospace font
 - Links: blue (`#3182ce`)
+- Tables: solid outer top/bottom border, dotted horizontal borders between rows, solid vertical borders between cells (no outer left/right border)
 - PDF page margins: 2 cm top/bottom, 2.5 cm left/right (via CSS `@page`)
 - Orphan headings: `page-break-after: avoid` prevents headings from being stranded at the bottom of a page
 
 To change the colour scheme or typography, edit `convertmd.css`. The DOCX output is not styled by the CSS — it uses pandoc's default DOCX template.
 
 ## Notes
+
+**HTML title** — the output HTML's `<title>` is set to the input filename (without extension), so the browser tab / window title matches the document instead of being blank.
 
 **Filenames with diacritics** — `cmd.exe` mangles non-ASCII characters when passing filenames to external tools. The script works around this by copying the input to a temporary ASCII-named file (`convtmp_XXXX.md`), running all conversions against that copy, then renaming the outputs back to the original filename. The temp file is deleted on completion or on any error.
 

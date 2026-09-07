@@ -39,7 +39,7 @@ if errorlevel 1 (
 )
 
 echo Converting to HTML...
-pandoc "%TMPMD%" -o "%TMPHTML%" --standalone --embed-resources --css "%CSSPATH%" --syntax-highlighting=pygments --metadata title=""
+pandoc "%TMPMD%" -o "%TMPHTML%" --standalone --embed-resources --css "%CSSPATH%" --syntax-highlighting=pygments --metadata pagetitle="%REALBASE%" --metadata title=""
 if errorlevel 1 (
     echo ERROR: HTML conversion failed.
     del /q "%TMPMD%" >nul 2>&1
